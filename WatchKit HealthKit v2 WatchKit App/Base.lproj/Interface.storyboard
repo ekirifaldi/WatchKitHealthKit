@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097.2" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchKit_HealthKit_v2_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="136" alignment="left" text="Heart New" id="Ra0-Jv-6yY"/>
+                        <button width="1" alignment="left" title="Button" id="DAF-wV-5Rf">
+                            <connections>
+                                <action selector="btnPressed" destination="AgC-eL-Hgc" id="cfQ-jy-EfD"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="button" destination="DAF-wV-5Rf" id="gEU-MU-ybu"/>
+                        <outlet property="label" destination="Ra0-Jv-6yY" id="NM1-YH-q67"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="32" y="36"/>
+        </scene>
+    </scenes>
+</document>
