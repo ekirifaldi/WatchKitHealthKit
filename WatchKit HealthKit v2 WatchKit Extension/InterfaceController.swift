@@ -65,6 +65,7 @@ class InterfaceController: WKInterfaceController {
 
 extension InterfaceController: HKWorkoutSessionDelegate{
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        print("State: \(toState.rawValue)")
         switch toState {
         case .running:
             print(date)
@@ -73,13 +74,14 @@ extension InterfaceController: HKWorkoutSessionDelegate{
                 healthStore.execute(query)
             }
         //Execute Query
-        case .ended:
+        case .stopped: //sebelumnya .ended
             //Stop Query
             print("STOP: \(date)")
             healthStore.stop(self.currentQuery!)
+            session?.end()
             session = nil
         default:
-            print("Unexpected state: \(toState)")
+            print("Unexpected state: \(toState.rawValue)")
         }
     }
     
