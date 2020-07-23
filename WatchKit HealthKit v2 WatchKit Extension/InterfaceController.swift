@@ -10,9 +10,6 @@ import WatchKit
 import Foundation
 import HealthKit
 
-//https://forum.freecodecamp.org/t/watchkit-swift-updating-the-label-with-the-current-heartrate/274646
-
-
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var button: WKInterfaceButton!
     @IBOutlet weak var label: WKInterfaceLabel!
