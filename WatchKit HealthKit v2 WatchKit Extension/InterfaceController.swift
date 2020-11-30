@@ -68,7 +68,6 @@ extension InterfaceController: HKWorkoutSessionDelegate{
         print("State: \(toState.rawValue)")
         switch toState {
         case .running:
-            print(date)
             if let query = heartRateQuery(date){
                 self.currentQuery = query
                 healthStore.execute(query)
@@ -76,7 +75,6 @@ extension InterfaceController: HKWorkoutSessionDelegate{
         //Execute Query
         case .stopped: //sebelumnya .ended
             //Stop Query
-            print("STOP: \(date)")
             healthStore.stop(self.currentQuery!)
             session?.end()
             session = nil
@@ -110,7 +108,6 @@ extension InterfaceController: HKWorkoutSessionDelegate{
         
 //        healthStore.start(self.session!)
         session?.startActivity(with: Date())
-        print("Start Workout Session")
     }
     
     func heartRateQuery(_ startDate: Date) -> HKQuery? {
@@ -127,7 +124,6 @@ extension InterfaceController: HKWorkoutSessionDelegate{
             DispatchQueue.main.async {
                 guard let sample = samples.first else { return }
                 let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
-                print("This line is executed!")
                 self.label.setText(String(UInt16(value))) //Update label
             }
             
